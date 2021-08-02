@@ -52,7 +52,7 @@ Teceiro Quartil = 90
 
 Desvio Padrão = 4,46
 
-*c.*
+*C.*
 ```{r}
 hist(x)
 hist(x, ylab = "Frequência Absoluta", xlab = "BAT/min", col = "blue", main = "Batimentos Cardíacos")
@@ -61,12 +61,15 @@ hist(x, ylab = "Frequência Absoluta", xlab = "BAT/min", col = "blue", main = "B
 *c.* Não há diferença, pois a média e a mediana são próximos.
 
 
+
+
+
 **Questão 4**
 
 *a.*  Não, pois o tidy apresenta apenas as dez primeiras linhas da tabela enquanto a do bruto apresenta todas as linhas e todas as colunas.
 
 
-*b.*
+*b*
 
 *Média*
 ```{r}

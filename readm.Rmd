@@ -1,0 +1,234 @@
+---
+title: "Atividade Avaliativa I"
+author: "Luis Fernando dos Santos de Brito </br>"
+date: "Estat 28/07/2020.2"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+---
+**Questão 01** Box Plot
+
+*a.* O erro foi não ter calculado o intervalo fora do Box Plot, é sim 50%, o equivalente ao Q1 e Q3.
+*b.* 17
+*c.* 13
+*D.* 55x24/240 = 5,5
+
+
+**Questão 2** Uma prova foi aplicada em duas turmas distintas. Na primeira, com 30 alunos, a média aritmética das notas foi
+6.40. Na segunda, com 50 alunos, foi 5.20. A média aritmética das notas dos 80 alunos foi:
+
+*Letra A: 5,65*
+
+30 * 6,40 + 50 * 5,20/80 = 192+260/80 = 452/80 = 5,65**
+
+**Questão 3** 
+Considere os dados abaixo, onde a variável de interesse, X, é batimentos cardíacos por minuto (BAT/min).
+68 70 72 58 90 110 68 70 72 80
+80 67 90 94 100 80 75 79 84 90
+
+*a.*
+```{r}
+x <- c(68,70,72,58,90,110,68,70,72,80
+,80,67,90,94,100,80,75,79,84,90)
+(110:58)
+```
+
+
+
+*b.**
+
+Média = 79,85
+
+Mediana = 79,5
+
+Primeiro Quartil = 70
+
+Teceiro Quartil = 90
+
+Desvio Padrão = 4,46
+
+*c.*
+```{r}
+hist(x)
+hist(x, ylab = "Frequência Absoluta", xlab = "BAT/min", col = "blue", main = "Batimentos Cardíacos")
+```
+
+*c.* Não há diferença, pois a média e a mediana são próximos.
+
+
+**Questão 4**
+
+*a.*  Não, pois o tidy apresenta apenas as dez primeiras linhas da tabela enquanto a do bruto apresenta todas as linhas e todas as colunas.
+
+
+*b.*
+
+*Média*
+```{r}
+mean(frango_dieta$peso)
+```
+
+*c.*
+
+*Desvio Padrão*
+```{r}
+sd(frango_dieta$peso)
+```
+*d.*
+
+*Variaveis*
+Tempo, Peso, Frango, Dieta = Quantitativo Discreto
+
+**Questão 5**
+
+*código script*
+
+```{r}
+N <- 1000
+x <- rnbinom(N, 4, .5)
+hist(
+x,
+xlim = c(min(x), max(x)),
+probability = T,
+nclass = max(x) - min(x) + 1,
+col = 'lightblue', xlab = ' ', ylab = ' ', axes = F,
+main = 'Positive Skewed'
+)
+lines(density(x, bw = 1), col = 'red', lwd = 3)
+
+```
+
+A média, pois ela e influenciada por todos os valores da amostra, e a mediana e o valor central da amostra, por tanto, a média nesse caso e a melhor escolha.
+
+**Questão 6**
+
+*b.* Não, pois o tidy apresenta apenas as dez primeiras linhas da tabela enquanto a do bruto apresenta todas as linhas e todas as colunas.
+
+*c.*
+
+*Arquivo no formato tidy*
+```{r}
+dados_co2  %>%
+    pivot_longer(1:13, 
+                 names_to = "ano", 
+                 values_to = "dez")
+
+```
+
+
+*d.*
+
+*Arquivo csv.*
+```{r}
+dados_co2 <- read.csv("dados/brutos/dados_co2.csv")
+
+
+dados_co2 %>% View()
+
+```
+
+
+
+
+
+```{r}
+dados_co2_tidy <- dados_co2 %>%  
+  pivot_longer(
+    !ano,
+    names_to = "mes",
+    values_to = "ppm"
+  )
+  
+```
+
+  
+
+
+
+
+
+```{r}
+write.csv(dados_co2_tidy, "dados/tidy/dados_co2_tidy.csv")
+```
+
+*e.*
+
+*Lendo o dataset*
+```{r}
+co2_tidy <-  read_csv("dados/tidy/dados_co2_tidy.csv")
+View(co2_tidy)
+
+co2_tidy %>% glimpse()
+```
+
+
+*Código de para roda*
+
+```{r}
+#-------------------------------------------
+co2_tidy %>% # conjunto de dados
+group_by(ano) %>% # agrupa por ano
+summarise(media = round(mean(ppm), 2)) %>% # calcula a média da variavel ppm em cada grupo
+ggplot(aes(ano, media, group = 1)) + # cria o gráfico
+geom_line(color = "blue", size = 1)
+#-------------------------------------------
+```
+
+
+
+
+**Questão 7**
+
+*a.*
+
+*Tabela tibble*
+```{r}
+ tibble(
+  nome = c("Ana", "Ludimilla", "Cristina", "Tereza", "Patrícia", "Mariana", "Ana Paula", "Dirce"),
+  altura = c("155", "158", "162", "168", "170", "170", "172", "173"),
+  peso = c("50", "61", "65", "68", "69", "65", "82", "79")
+)
+```
+
+*b.*
+
+*Variaveis*
+nome = Qualitativo Nominal 
+
+Altura = Quantitativo Discreto
+
+Peso = Quantitativo Discreto
+
+*c.*
+
+*calculos do peso/altura*
+Peso:
+
+Mediana = 66,5
+
+Média = 67,375
+
+Desvio padrão = 9,39
+
+Altura:
+
+Mediana = 169 
+
+Média = 166
+
+
+Desvio padrão = 6,34
+
+*d.*
+
+*Gráfico plot*
+```{r}
+plot(tabela_1$"peso", tabela_1$"altura" , col = "blue", xlab = "altura", ylab = "peso", main = "tabela 1")
+```
+
+

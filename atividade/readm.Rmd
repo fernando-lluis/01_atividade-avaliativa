@@ -64,7 +64,6 @@ hist ( dados , ylab  =  " Frequência Absoluta " , xlab  =  " BAT / min " , col 
 ```
 **Questão 04** No repositório de dados da disciplina no GitHub, dados_csv, analise o conjunto de dados frango_dieta.csv.
 ```{r}
-library(readr)
 frango_dieta. <- read_csv("dados/brutos/frango_dieta.csv")
 View(frango_dieta.)
 ```
@@ -104,7 +103,6 @@ lines(density(x, bw = 1), col = 'red', lwd = 3)
 ```
 **Questão 06** Considere o banco de dados dados_co2.csv
 ```{r}
-library(readr)
 dados_co2. <- read_csv("dados/brutos/dados_co2.csv")
 View(dados_co2.)
 ```
@@ -155,7 +153,6 @@ geom_line(color = "blue", size = 1)
 ```
 *Questão 07** Considere uma Tabela 1:
 ```{r}
-library(readr)
 tabela_1 <- read_csv("dados/brutos/tabela_1.csv")
 View(tabela_1)
 ```

@@ -245,6 +245,8 @@ geom_line(color = "blue", size = 1)
 #-------------------------------------------
 ```
 
+*Ao longo dos anos a média ppm foi aumentando gradativamente.*
+
 \*Questão 07\*\* Considere uma Tabela 1:
 
 ``` r

@@ -176,7 +176,7 @@ ggplot(aes(ano, media, group = 1)) + # cria o gráfico
 geom_line(color = "blue", size = 1)
 #-------------------------------------------
 ```
-
+*Ao longo dos anos a média ppm foi aumentando gradativamente.*
 
 *Questão 07** Considere uma Tabela 1:
 

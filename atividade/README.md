@@ -6,3 +6,4 @@ Esse repositório trata da primeira atividade avaliativa da disciplina de estati
 
 As soluções podem ser vistas nesse link: [atividade avaliativa 1](atividade/readme.md).
 
+
